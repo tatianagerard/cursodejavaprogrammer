@@ -1,2 +1,0 @@
-# cursodejavaprogrammer
- Meu primeiro exercicio
