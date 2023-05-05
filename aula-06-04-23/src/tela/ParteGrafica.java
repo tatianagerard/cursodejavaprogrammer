@@ -1,6 +1,6 @@
-package servico;
 
-public class ParteGrafica {
+
+
 	package tela;
 
 	import javax.swing.JOptionPane;
@@ -10,7 +10,7 @@ public class ParteGrafica {
 	import servico.Calculo;
 
 	public class ParteGrafica {
-		Calculos calc = new Calculos();
+		Calculo calc = new Calculo();
 		
 		
 		public void cadastrarFuradeira(Furadeira furadeira) {
@@ -25,7 +25,7 @@ public class ParteGrafica {
 			furadeira.setPrecoDeVenda(Double.parseDouble(JOptionPane.showInputDialog("Digite o Preco de venda: ")));
 			
 			//Chama o metodo 
-			furadeira.setLucro(calc.calcularLucro(furadeira.getPrecoDeVenda(), furadeira.getPrecoDeCompra()));
+			furadeira.setLucro(calc.calcular(furadeira.getPrecoDeVenda(), furadeira.getPrecoDeCompra()));
 			
 			apresentarFuradeira(furadeira);
 			
@@ -45,15 +45,15 @@ public class ParteGrafica {
 		public Makita cadastrarMakita() {
 			Makita makita = new Makita();
 			
-			// Recebe os dados do usuario e armazena nos atributos do objeto
+			// Recebe os dados atriutos 
 			makita.setCodigo(JOptionPane.showInputDialog("Digite o codigo: "));
 			makita.setMarca(JOptionPane.showInputDialog("Digite a marca: "));
 			makita.setTipoDisco(JOptionPane.showInputDialog("Digite o tipo de disco: "));
 			makita.setPrecoDeCompra(Double.parseDouble(JOptionPane.showInputDialog("Digite o Preco de compra: ")));
 			makita.setPrecoDeVenda(Double.parseDouble(JOptionPane.showInputDialog("Digite o Preco de venda: ")));
 			
-			//Chama o metodo calcular lucro
-			makita.setLucro(calc.calcularLucro(makita.getPrecoDeVenda(), makita.getPrecoDeCompra()));
+			//Chama o metodo
+			makita.setLucro(calc.calcular(makita.getPrecoDeVenda(), makita.getPrecoDeCompra()));
 			
 			return makita;
 			
@@ -66,12 +66,16 @@ public class ParteGrafica {
 			JOptionPane.showMessageDialog(null, "O preço de Compra da Makita é: " + makitaParametro.getPrecoDeCompra());
 			JOptionPane.showMessageDialog(null, "O preço de Venda da Makita é: " + makitaParametro.getPrecoDeVenda());
 			JOptionPane.showMessageDialog(null, "O lucro da Makita é: " + makitaParametro.getLucro());
-		}
+                 }         
 		
 		public void menu() {
 			int opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite 1 para Furadeira e 2 para Makita:"));
 			
 			Furadeira furadeira = new Furadeira();
+			Boolean sair = true;
+			do {
+				opcao = Integer.parseInt(JOptionPane.showInputDialog ("Digite 1 Furadeira,2 Mkita,3 nehuma"));
+		  
 			
 			if(opcao == 1) {
 				 cadastrarFuradeira(furadeira);
@@ -83,11 +87,18 @@ public class ParteGrafica {
 				apresentarMakita(cadastrarMakita());
 			}
 			
+			if (opcao == 3) {
+				sair = false;
+			System.exit(0);
+	  sair = false;
 			
-		}
-		
+	while(sair);
+			}
+			
+			
+			
 		
 		
 	
 
-}
+
