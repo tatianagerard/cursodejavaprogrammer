@@ -44,6 +44,11 @@ public class TelaCadastroJogador {
 		
 	}
 
+	public static void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	}
 

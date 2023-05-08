@@ -9,17 +9,18 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 
 
-
 import controlador.ControladorTelaMenuJogador;
 
 
+
 public class TelaMenuJogador {
+	
 
 	public void  criarTelaMenuJogador() {
 		
 		 String menu1 = "Digite 1 = para cadastrar";
 		 String menu2= "Digite 2 = para listar";
-		 
+		 String menu3 = "Digite 3 = para deletar";
 		 
 		 
 		 JFrame frameTelaMenuJogador = new JFrame();
@@ -37,6 +38,9 @@ public class TelaMenuJogador {
 		 
 		 JLabel labelmenu2 = new JLabel();
 		 panelTelaMenuJogador.add(labelmenu2);
+		 
+		 JLabel labelmenu3 = new JLabel(menu3);
+			panelTelaMenuJogador.add(labelmenu3);
 		 
 		 
 		 JTextField textRespostaTelaMenuJogador = new JTextField(15);
