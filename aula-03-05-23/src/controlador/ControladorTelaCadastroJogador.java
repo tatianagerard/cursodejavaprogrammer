@@ -20,15 +20,14 @@ public  class ControladorTelaCadastroJogador implements ActionListener {
 	RepositorioJogador repositorioJogadorRecebido;
 	
 	public ControladorTelaCadastroJogador(JTextField nomeRecebido, JTextField cpfRecebido, JFrame menuPrincipalRecebido,
-			JFrame telaCadastroJogadorecebido,RepositorioJogador repositorioJogador) {
-		
+			JFrame telaCadastroJogadorecebido, RepositorioJogador repositorioJogadorRecebido) {
+		super();
 		this.nomeRecebido = nomeRecebido;
 		this.cpfRecebido = cpfRecebido;
 		this.menuPrincipalRecebido = menuPrincipalRecebido;
 		this.telaCadastroJogadorecebido = telaCadastroJogadorecebido;
-		
-	}
-
+    	this.repositorioJogadorRecebido = repositorioJogadorRecebido; 
+	}	
 	
 	
 	
@@ -42,6 +41,8 @@ public  class ControladorTelaCadastroJogador implements ActionListener {
 		
 	}
 	
+
+
 public Jogador popularJogador1() {
 		
 		Jogador jogador = new Jogador();
@@ -51,13 +52,6 @@ public Jogador popularJogador1() {
 		return jogador;
 	}
 
-
-
-
-	private Jogador popularJogador() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 		
 		}

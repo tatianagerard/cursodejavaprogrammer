@@ -7,9 +7,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TelaCadastroJogador {
+import controlador.ControladorTelaCadastroJogador;
+import repositorio.RepositorioJogador;
 
-	public void criarTelaCadastroJogador() {
+
+
+public class TelaCadastroJogador<ControladorTelaMenuJogador> {
+
+	
+	public static void criarTelaCadastroJogador(JFrame menuPrincipal, RepositorioJogador repositorioJogador) {
 		
 		String nome = "Digite o nome";
 		String cpf = "Digite o cpf";
@@ -42,13 +48,17 @@ public class TelaCadastroJogador {
 		frameTelaCadastroJogador.setVisible(true);
 		
 		
-	}
-
-	public static void setVisible(boolean b) {
-		// TODO Auto-generated method stub
 		
+		ControladorTelaCadastroJogador controladorTelaCadastroJogador = new ControladorTelaCadastroJogador(textNome, textCpf, menuPrincipal, frameTelaCadastroJogador, repositorioJogador);
+		buttonTelaCadastroJogador.addActionListener(controladorTelaCadastroJogador);
 	}
+	
+	
+
+	
+		
+}
 
 
-	}
+	
 

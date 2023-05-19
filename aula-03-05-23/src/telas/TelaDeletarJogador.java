@@ -7,7 +7,6 @@ import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -19,7 +18,7 @@ import controlador.ControladorTelaDeletarJogador;
 
 public class TelaDeletarJogador {
 	
-	public void deletarJogador(List<Jogador>listaJogadores,JFrame menuPrincipal,RepositorioJogador repositorioJogador) {
+	public static void deletarJogador(List<Jogador>listaJogadores,JFrame menuPrincipal,RepositorioJogador repositorioJogador) {
 		
 		
 		int quantidadeDeLinhas = listaJogadores.size();

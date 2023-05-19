@@ -19,8 +19,9 @@ public class TelaMenuJogador {
 	public void  criarTelaMenuJogador() {
 		
 		 String menu1 = "Digite 1 = para cadastrar";
-		 String menu2= "Digite 2 = para listar";
+		 String menu2 = "Digite 2 = para listar";
 		 String menu3 = "Digite 3 = para deletar";
+		 String menu4 = "Digite 4 = para Atualizar";
 		 
 		 
 		 JFrame frameTelaMenuJogador = new JFrame();
@@ -33,15 +34,17 @@ public class TelaMenuJogador {
 		 panelTelaMenuJogador.setLayout(grid);
 		 
 		 
-		 JLabel labelmenu1 = new JLabel();
+		 JLabel labelmenu1 = new JLabel(menu1);
 		 panelTelaMenuJogador.add(labelmenu1);
 		 
-		 JLabel labelmenu2 = new JLabel();
+		 JLabel labelmenu2 = new JLabel(menu2);
 		 panelTelaMenuJogador.add(labelmenu2);
 		 
 		 JLabel labelmenu3 = new JLabel(menu3);
 			panelTelaMenuJogador.add(labelmenu3);
 		 
+			 JLabel labelmenu4 = new JLabel(menu4);
+				panelTelaMenuJogador.add(labelmenu4);
 		 
 		 JTextField textRespostaTelaMenuJogador = new JTextField(15);
 		 panelTelaMenuJogador.add(textRespostaTelaMenuJogador);

@@ -2,19 +2,22 @@ package repositorio;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
 
 import entidades.Jogador;
+import persistencia.JogadorDao;
 
 public class RepositorioJogador  implements InterfaceJogador{
 	
 	List<Jogador> listaJogadores = new ArrayList<>();
 	
+	JogadorDao jogadorDao = new JogadorDao();
+	
 	
 	@Override
 	 		// TODO Auto-generated method stub
 	public  void salvarJogador(Jogador jogador) {
-		listaJogadores.add(jogador);
+		//listaJogadores.add(jogador);
+		jogadorDao.salvarJogadorBanco(jogador);
 		
 	}
 
@@ -22,7 +25,9 @@ public class RepositorioJogador  implements InterfaceJogador{
 	@Override
 	public List<Jogador> retornaListaJogadores() {
 		// TODO Auto-generated method stub
-		return listaJogadores;
+		return jogadorDao.buscarListaDeJogador();
+	//	return listaJogadores;
+		
 	}
 
 
@@ -35,7 +40,8 @@ public class RepositorioJogador  implements InterfaceJogador{
 	@Override
 	public boolean deletarJogador(Jogador jogador) {
 		boolean resultado;
-		
+		resultado = jogadorDao.deletarJogadorPelocpf(jogador.getCpf());
+		/*
 		try {
 			
 			listaJogadores.remove(jogador);
@@ -44,10 +50,10 @@ public class RepositorioJogador  implements InterfaceJogador{
 		} catch (Exception e) {
 			resultado = false;
 		}
-		
+		*/
 		return resultado;
 	}
-
+//Buscar de acordo  com o cpf,caso nao encontre volta null.
 	@Override
 	public Jogador buscarJogador1(String cpf) {
 		
@@ -61,10 +67,16 @@ public class RepositorioJogador  implements InterfaceJogador{
 	
 		return null;
 	}
+	    
+	@Override
+	public void alterarJogador(Jogador jogadorAtual, Jogador jogadorNovo) {
+		
+		listaJogadores.remove(jogadorAtual);
+		listaJogadores.add(jogadorNovo);
 
 	
 	}
-
+}
 
 	
 	

@@ -6,11 +6,14 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import telas.TelaCadastroJogador;
+
 import entidades.Jogador;
-import telas.TelaListarJogador;
-import telas.TelaMenuJogador;
+import repositorio.RepositorioJogador;
 import telas.TelaCadastroJogador;
+import telas.TelaDeletarJogador;
+import telas.TelaIndentificaAlterarJogador;
+import telas.TelaListarJogador;
+
 
 
 
@@ -30,29 +33,57 @@ public class ControladorTelaMenuJogador implements ActionListener {
 		this.respostaRecebidaTelaPrincipal = respostaRecebidaTelaPrincipal;
 	}
 
-
-	@Override
+	TelaCadastroJogador<?> telaCadastroJogador = new TelaCadastroJogador<Object>();
+	TelaListarJogador telaListarJogador = new TelaListarJogador();
+	TelaDeletarJogador deletarJogador = new TelaDeletarJogador();
+	TelaIndentificaAlterarJogador telaIndentificaAlterarJogador = new TelaIndentificaAlterarJogador();
+	
+	RepositorioJogador repositorioJogador = new RepositorioJogador();
+	
+	
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		
 		String resposta = respostaRecebidaTelaPrincipal.getText();
 		
 		switch (resposta) {
 		case "1":
-			TelaCadastroJogador criarTelaCdastroJogador;
+			
+			TelaCadastroJogador.criarTelaCadastroJogador(frameTelaMenuPrincipal,repositorioJogador);
 			frameTelaMenuPrincipal.setVisible(false);
 		break;
 		
 		
 		case"2":
-			System.out.println("Abrir tela ");
+			telaListarJogador.listarJogador(repositorioJogador.retornaListaJogadores(), frameTelaMenuPrincipal);
+			frameTelaMenuPrincipal.setVisible(false);
 			break;
 			
+		case "3": 
+			
+			TelaDeletarJogador.deletarJogador(repositorioJogador.retornaListaJogadores(), frameTelaMenuPrincipal, repositorioJogador );
+			frameTelaMenuPrincipal.setVisible(false);
+			
+			break;
+		case "4": 
+			
+			
+			TelaIndentificaAlterarJogador.criarTelaIndentificaAlterarJogador(repositorioJogador.retornaListaJogadores(), frameTelaMenuPrincipal, repositorioJogador);
+			frameTelaMenuPrincipal.setVisible(false);
+			break;
+	
 		}
 		
+	}	
+		public void listarTeste(List<Jogador> listaJogadores){
+			
+			for(Jogador jogador: listaJogadores ){
+				System.out.println(jogador.getNome());
+				System.out.println(jogador.getCpf());
 	}
 
-}
-
+		}
+	}
 	
 		
 		
