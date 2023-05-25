@@ -30,7 +30,7 @@ public class ControladordentificaAlterarJogador implements ActionListener{
 		this.textcpfRedebido = textcpfRedebido;
 	}
 			
-TelaFormularioAlterarJogador formularioAlterarJogador = new TelaFormularioAlterarJogador();
+       TelaFormularioAlterarJogador formularioAlterarJogador = new TelaFormularioAlterarJogador();
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {

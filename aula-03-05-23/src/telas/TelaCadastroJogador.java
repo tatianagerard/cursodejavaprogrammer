@@ -19,6 +19,8 @@ public class TelaCadastroJogador<ControladorTelaMenuJogador> {
 		
 		String nome = "Digite o nome";
 		String cpf = "Digite o cpf";
+		String email ="Digite o email";
+		
 		
 		JFrame frameTelaCadastroJogador = new JFrame();
 		frameTelaCadastroJogador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,6 +38,13 @@ public class TelaCadastroJogador<ControladorTelaMenuJogador> {
 		
 		JLabel labelCpf = new JLabel(cpf);
 		panelTelaCadastroJogador.add(labelCpf);
+		
+		JLabel labelEmail = new JLabel(email);
+		panelTelaCadastroJogador.add(labelEmail);
+		
+		JTextField textEmail = new  JTextField(10);
+		panelTelaCadastroJogador.add(textEmail);
+		
 		
 		JTextField textCpf = new  JTextField(10);
 		panelTelaCadastroJogador.add(textCpf);

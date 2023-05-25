@@ -7,11 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entidades.Jogador;
+import manipulacaodearquivo.LogCrudJogador;
 
 //Acessar a tabela do objeto jogador
 public class JogadorDao {
 	
-	public boolean salvarJogadorBanco(Jogador jogador) {
+	LogCrudJogador logCrudJogador = new LogCrudJogador();
+	
+	public boolean salvarJogadorBanco(Jogador jogador) { 
+		
 		FabricaConexao fabricaConexao = new FabricaConexao();
 		
 		boolean salvamento = false;
@@ -25,9 +29,18 @@ public class JogadorDao {
 			
 			declaracaoComando = conexaoRecebida.prepareStatement(comandoSqlInsert);//recebe o banco e comando Sql
 			declaracaoComando.setString(1, jogador.getCpf());
-			declaracaoComando.setString(2,jogador.getNome());
+			declaracaoComando.setString(2,jogador.getNome().toUpperCase());
+			declaracaoComando.setString(3, jogador.getEmail().toUpperCase());
+			
 			declaracaoComando.execute();
+			
+			
 			salvamento = true;
+			
+			
+            System.out.println("Jogador Registrado com sucesso");
+			
+			logCrudJogador.escreverNoArquivoLogJogador(jogador, "Cadastrar");
 			
 		}catch (Exception mensagemErro) {
 			System.out.println(mensagemErro);
@@ -132,6 +145,8 @@ public class JogadorDao {
 				
 				jogador.setNome(resultadoTabela.getString("nome"));
 				jogador.setCpf(resultadoTabela.getString("cpf"));
+				jogador.setEmail(resultadoTabela.getString("email"));
+				
 				
 				listaJogadoresDoBanco.add(jogador);
 			}
@@ -170,4 +185,64 @@ public class JogadorDao {
 		
 	}
 	
+      public boolean alterarJogador(Jogador jogador) {
+		
+		FabricaConexao fabricaConexao = new FabricaConexao();  
+		
+		
+	     boolean alteracao = false;
+	     String comandoSqlUpdate = "update  tabela_jogador set cpf = ?, nome = ?, email = ? where  cpf = ?" ;
+	     
+	     
+	     Connection conexaoRecebida = null;
+	     PreparedStatement declaracaoComando = null;
+	     
+	     try {
+				conexaoRecebida = fabricaConexao.criarConexao();
+				
+				declaracaoComando = (PreparedStatement)conexaoRecebida.prepareStatement(comandoSqlUpdate);
+				
+				declaracaoComando.setString(1, jogador.getCpf());
+				declaracaoComando.setString(2, jogador.getNome());
+				declaracaoComando.setString(3, jogador.getEmail());
+				
+				declaracaoComando.setString(4, jogador.getCpf());
+				
+				declaracaoComando.execute();
+				
+				alteracao = true;
+				System.out.println("Jogador Alterado com sucesso");
+				
+				logCrudJogador.escreverNoArquivoLogJogador(jogador, "Alterar");
+	     } catch (Exception mensagemErro) {
+				System.out.println(mensagemErro);
+				System.out.println("Erro ao alterar!");
+				alteracao = false;
+				
+	     }finally { 
+	    	 
+	    	 try {
+	    		 if(conexaoRecebida != null)
+	    			 conexaoRecebida.close();
+				
+				
+				if (declaracaoComando != null) {
+					declaracaoComando.close();
+				}
+				
+			} catch (Exception msgErro) {
+				System.out.println(msgErro);
+				System.out.println("Erro ao tentar fechar a conexao");
+			}
+			
+		}
+		
+		return alteracao;
+
+	}
+	
 }
+
+	     
+	     
+	     

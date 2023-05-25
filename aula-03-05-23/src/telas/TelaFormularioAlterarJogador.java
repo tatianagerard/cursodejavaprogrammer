@@ -16,8 +16,9 @@ import repositorio.RepositorioJogador;
        public class TelaFormularioAlterarJogador {
        public void formularioAlterarJogador(Jogador jogadorEncontrado, JFrame frameMenuPrincipal, RepositorioJogador repositorioJogadorRecebido) {
 		
-		String nome = "Digite o nome";
-		String cpf = "Digite o cpf";
+		String nome = "Altere o Nome";
+		String cpf = "Não pode ser Alterado";
+		String email = "Altere o email";
 		
 		JFrame frameFormularioAlterarJogador = new JFrame();
 		frameFormularioAlterarJogador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,6 +41,15 @@ import repositorio.RepositorioJogador;
 		JTextField textCpf = new  JTextField(10);
 		textCpf.setText(jogadorEncontrado.getCpf());
 		panelFormularioAlterar.add(textCpf);
+		
+		JLabel labelEmail = new JLabel(email);
+		panelFormularioAlterar.add(labelEmail);
+		
+		JTextField textEmail = new  JTextField(10);
+		textEmail.setText(jogadorEncontrado.getEmail());
+		
+		
+		
 		
 		JButton buttonTelaCadastroJogador = new JButton("Alterar Jogador");
 		panelFormularioAlterar.add(buttonTelaCadastroJogador);
