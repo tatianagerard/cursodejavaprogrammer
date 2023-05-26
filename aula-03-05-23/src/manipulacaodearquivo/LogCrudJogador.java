@@ -13,13 +13,13 @@ import persistencia.LogDao;
         	
       private static final String String = null;
 
-	public void escreverNoArquivoLogJogador(Jogador jogador, String tipoOperacao,String escrita) {
+	public void escreverNoArquivoLogJogador(Jogador jogador, String tipoOperacao) {
 		
 		LogDao logDao = new LogDao();
 		LocalDateTime horaAtual = LocalDateTime.now();
 		
-		String enderecoArquivo =
-		String escrita = "";
+		String enderecoArquivo = "C:\\RepositorioGithub\\meurepositoriov2\\cursodejavaprogrammer\\aula-03-05-23\\log.txt";
+		String escrita;
 		switch (tipoOperacao) {
 		
 		case  "Deletar":
