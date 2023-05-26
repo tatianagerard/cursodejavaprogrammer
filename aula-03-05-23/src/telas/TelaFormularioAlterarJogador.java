@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import controlador.ControladorFormularioAlterarJogador;
 import entidades.Jogador;
 import repositorio.RepositorioJogador;
-
+import controlador.ControladordentificaAlterarJogador;
 
        public class TelaFormularioAlterarJogador {
        public void formularioAlterarJogador(Jogador jogadorEncontrado, JFrame frameMenuPrincipal, RepositorioJogador repositorioJogadorRecebido) {

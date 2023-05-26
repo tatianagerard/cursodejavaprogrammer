@@ -8,6 +8,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import repositorio.RepositorioJogador;
 
+import validacao.MensagemErroValidacaoJogador;
+import validacao.ValidaEntidade;
+import entidades.Jogador;
+import repositorio.RepositorioJogador;
+
 import entidades.Jogador;
 
 
@@ -21,19 +26,22 @@ public  class ControladorTelaCadastroJogador implements ActionListener {
 	
 	
 	public ControladorTelaCadastroJogador(JTextField nomeRecebido, JTextField cpfRecebido, JFrame menuPrincipalRecebido,
-			JFrame telaCadastroJogadorecebido, RepositorioJogador repositorioJogadorRecebido) {
+			JFrame telaCadastroJogadorecebido, RepositorioJogador repositorioJogadorRecebido , JTextField textEmail) {
 		super();
 		this.nomeRecebido = nomeRecebido;
 		this.cpfRecebido = cpfRecebido;
 		this.menuPrincipalRecebido = menuPrincipalRecebido;
 		this.telaCadastroJogadorecebido = telaCadastroJogadorecebido;
     	this.repositorioJogadorRecebido = repositorioJogadorRecebido; 
+    	this.emailRecebido = textEmail;
 	}	
 	
 	
 	JFrame menuPrincipalRecebido;
 	JFrame telaCadastroJogadorecebido;
 	RepositorioJogador repositorioJogadorRecebido;
+	MensagemErroValidacaoJogador mensagemErroValidacaoJogador = new MensagemErroValidacaoJogador();
+	
 
 	String mensagemErro;
 	

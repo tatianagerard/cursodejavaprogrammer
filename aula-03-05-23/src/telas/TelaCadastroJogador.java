@@ -58,7 +58,7 @@ public class TelaCadastroJogador<ControladorTelaMenuJogador> {
 		
 		
 		
-		ControladorTelaCadastroJogador controladorTelaCadastroJogador = new ControladorTelaCadastroJogador(textNome, textCpf, menuPrincipal, frameTelaCadastroJogador, repositorioJogador);
+		ControladorTelaCadastroJogador controladorTelaCadastroJogador = new ControladorTelaCadastroJogador(textNome, textCpf, menuPrincipal, frameTelaCadastroJogador, repositorioJogador,textEmail);
 		buttonTelaCadastroJogador.addActionListener(controladorTelaCadastroJogador);
 	}
 	

@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
 import controlador.ControladorTelaListarJogador;
 import entidades.Jogador;
 import java.util.List;
@@ -13,7 +14,7 @@ public class TelaListarJogador {
 	public void listarJogador(List<Jogador> listaJogadores, JFrame menuPrincipal) {
 		int quantidadeDeLinhas = listaJogadores.size();
 
-		String[][] tabelaString = new String[quantidadeDeLinhas][2];
+		String[][] tabelaString = new String[quantidadeDeLinhas][3];
 
 		int posicaoColuna = 0;
 		int posicaoLinha = 0;
@@ -21,16 +22,19 @@ public class TelaListarJogador {
 		for (Jogador jogador : listaJogadores) {
 			tabelaString[posicaoLinha][posicaoColuna] = jogador.getCpf();
 
-			posicaoColuna++;
+			posicaoColuna++;			
 
 			tabelaString[posicaoLinha][posicaoColuna] = jogador.getNome();
 
+			posicaoLinha++;
+						
+			tabelaString[posicaoLinha][posicaoColuna] = jogador.getEmail();
 			posicaoLinha++;
 			posicaoColuna = 0;
 
 		}
 
-		String nomesColunas[] = { "CPF", "NOME" };
+		String nomesColunas[] = { "CPF", "NOME","Email" };
 
 		JFrame frameListarJogador = new JFrame();
 		frameListarJogador.setSize(500, 600);
